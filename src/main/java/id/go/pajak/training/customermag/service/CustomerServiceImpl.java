@@ -1,5 +1,7 @@
 package id.go.pajak.training.customermag.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,10 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	public void create(Customer customer) {
 		customerDao.create(customer);
-		
+	}
+	
+	public List<Customer> get(){
+		return customerDao.get();
 	}
 	
 }
