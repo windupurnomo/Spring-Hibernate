@@ -1,7 +1,9 @@
 package id.go.pajak.training.customermag.dao;
 
+import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,12 @@ public class CustomerDaoImpl implements CustomerDao{
 		Session session = sessionFactory.openSession();
 		session.save(customer);
 		session.flush();
+	}
+	
+	public List<Customer> get(){
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("from Customer");
+		return query.list();
 	}
 
 }

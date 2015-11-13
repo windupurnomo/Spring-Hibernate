@@ -18,5 +18,9 @@ public class App
         c.setName("windu");
         c.setPhone("890900");
         svc.create(c);
+        
+        for(Customer cx : svc.get()){
+        	System.out.println(cx.getName());
+        }
     }
 }
